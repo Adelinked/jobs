@@ -102,7 +102,6 @@ export default async function JobPage({ params }: { params: { id: string } }) {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

@@ -51,7 +51,6 @@ export default async function Home() {
           <JobsComp />
         </div>
       </section>
-      <Footer />
     </main>
   );
 }

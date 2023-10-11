@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
+import { Footer } from "./_components/footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,7 +33,10 @@ export default function RootLayout({
     <html lang="en" className={`${poppins.variable} ${roboto.variable}`}>
       <link rel="icon" href="/icon.png" sizes="any" />
 
-      <body>{children}</body>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
