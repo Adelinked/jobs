@@ -1,5 +1,6 @@
+import { jobType } from "@/app/store";
 import { NextResponse } from "next/server";
-import jobs from "@/data/jobs.json";
+//import jobs from "@/data/jobs.json";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -7,6 +8,10 @@ export async function GET(request: Request) {
   const search = searchParams.get("search");
   const type = searchParams.get("type");
   const location = searchParams.get("location");
+
+  const jobs = (await fetch(`${process.env.API_URL}/api/jobs`).then((res) =>
+    res.json()
+  )) as jobType[];
 
   if (id) return NextResponse.json(jobs.find((job) => job.id === Number(id)));
   let jobsResponse = jobs;

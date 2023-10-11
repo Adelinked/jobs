@@ -8,10 +8,9 @@ import { jobType, useJobsStore } from "./store";
 import { StoreInitializer } from "./_components/storeInitializer";
 import { headers } from "next/headers";
 import initialJobs from "@/data/jobs.json";
+import Link from "next/link";
 export default async function Home() {
-  const initialJobs = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/jobs`
-  )
+  const initialJobs = await fetch(`${process.env.API_URL}/api/jobs`)
     .then((res) => res.json())
     .then((data) => data.filter((job: jobType) => job.type === "Full time"));
 
@@ -23,8 +22,10 @@ export default async function Home() {
       <StoreInitializer initialJobs={initialJobs} />
 
       <header className="text-2xl mb-8">
-        <span className="font-bold">Adelinked</span>{" "}
-        <span className=" font-light">Jobs</span>
+        <Link href="/">
+          <span className="font-bold">Adelinked</span>{" "}
+          <span className=" font-light">Jobs</span>
+        </Link>
       </header>
       <section className="relative rounded-lg w-full py-[42px] overflow-hidden px-[18px] md:px-[105px] lg:px-[205px] mb-[29px] md:mb-[44px]">
         <Image

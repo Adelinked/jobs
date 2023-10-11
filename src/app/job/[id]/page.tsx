@@ -10,9 +10,9 @@ import { ImageWithFallback } from "@/app/_components/imageWithFallback";
 
 export default async function JobPage({ params }: { params: { id: string } }) {
   const { id } = params;
-  const job = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/jobs?id=${id}`
-  ).then((res) => res.json());
+  const job = await fetch(`${process.env.API_URL}/api/jobs?id=${id}`).then(
+    (res) => res.json()
+  );
   const { title, location, company, type, posted, how_to_apply, description } =
     job;
   const parts = splitTextByEmailAddress(how_to_apply);
@@ -25,8 +25,10 @@ export default async function JobPage({ params }: { params: { id: string } }) {
     <>
       <main className="min-h-screen w-full px-3 md:px-16 lg:px-[120px] pt-[12px] md:pt-8  ">
         <header className="text-2xl mb-8">
-          <span className="font-bold">Adelinked </span>
-          <span className=" font-light">Jobs</span>
+          <Link href="/">
+            <span className="font-bold">Adelinked </span>
+            <span className=" font-light">Jobs</span>
+          </Link>
         </header>
         <section className="flex flex-col md:flex-row gap-[77px]">
           <div className="mb-9 w-full md:w-1/4">
