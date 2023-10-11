@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${poppins.variable} ${roboto.variable}`}>
-      <link rel="icon" href="/devchallenges.png" sizes="any" />
+      <link rel="icon" href="/icon.png" sizes="any" />
 
       <body>{children}</body>
     </html>

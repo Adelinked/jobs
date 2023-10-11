@@ -1,18 +1,19 @@
 import Link from "next/link";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { splitTextByEmailAddress } from "@/app/utils";
-import { jobType } from "@/app/store";
 import { formatDistanceToNow } from "date-fns";
 import { BsClock } from "react-icons/bs";
 import { ImEarth } from "react-icons/im";
 import { Footer } from "@/app/_components/footer";
 import { ImageWithFallback } from "@/app/_components/imageWithFallback";
+import jobs from "@/data/jobs.json";
 
 export default async function JobPage({ params }: { params: { id: string } }) {
   const { id } = params;
-  const job = await fetch(`${process.env.API_URL}/api/jobs?id=${id}`).then(
+  /*const job = await fetch(`${process.env.API_URL}/api/jobs?id=${id}`).then(
     (res) => res.json()
-  );
+  );*/
+  const job = jobs.find((job) => job.id === Number(id))!;
   const { title, location, company, type, posted, how_to_apply, description } =
     job;
   const parts = splitTextByEmailAddress(how_to_apply);
