@@ -74,7 +74,7 @@ export default async function JobPage({ params }: { params: { id: string } }) {
             <div className="flex gap-3 mb-8">
               <div className="min-w-[42px] min-h-[42px] relative mt-1">
                 <ImageWithFallback
-                  src={`/${company}.png`}
+                  src={`${company}.png`}
                   alt={company}
                   fill
                   style={{ objectFit: "cover" }}

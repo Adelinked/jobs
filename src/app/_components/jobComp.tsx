@@ -24,7 +24,7 @@ export const JobComp = ({
     >
       <div className="relative h-[90px] w-[90px]">
         <ImageWithFallback
-          src={`/${company}.png`}
+          src={`${company}.png`}
           alt={company}
           fill
           style={{ objectFit: "cover" }}
